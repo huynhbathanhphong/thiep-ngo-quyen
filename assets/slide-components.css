@@ -256,3 +256,5 @@
 .btn.pulse { animation: pulse 1.8s ease-in-out infinite; }
 @keyframes pulse { 0%,100% { box-shadow: 0 6px 0 rgba(20,33,61,.25), 0 0 0 0 rgba(230,57,70,.45); } 50% { box-shadow: 0 6px 0 rgba(20,33,61,.25), 0 0 0 14px rgba(230,57,70,0); } }
 @media (max-width: 480px) { .promise-seal { width: 62px; height: 62px; right: -6px; font-size: .66rem; } }
+.profile-photo { width: 100%; max-width: 320px; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 20%; border-radius: 28px; }
+.avatar-card { padding: 16px 16px 20px; }
