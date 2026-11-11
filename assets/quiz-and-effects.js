@@ -112,3 +112,16 @@
     if (e.detail.slide.id === 'loi-ket') burst(innerWidth / 2, innerHeight / 3, 120);
   });
 })();
+
+// Tách lời hứa thành từng chữ để hiện dần khi tới slide cuối; tô đỏ các chữ quan trọng.
+(function () {
+  var el = document.getElementById('promise-text');
+  if (!el) return;
+  var keys = ['chăm', 'ngoan,', 'giỏi', 'Ngô', 'Quyền!'];
+  var words = el.textContent.trim().split(/\s+/);
+  el.innerHTML = words.map(function (word, i) {
+    var isKey = keys.indexOf(word) >= 0 || words[i + 1] === 'giỏi';
+    var cls = isKey ? 'w key' : 'w';
+    return '<span class="' + cls + '" style="--w:' + i + '">' + word + '</span>';
+  }).join(' ');
+})();

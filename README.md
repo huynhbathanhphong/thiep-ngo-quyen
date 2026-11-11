@@ -31,5 +31,5 @@ Rồi mở `http://localhost:8000`.
 - Học 2 buổi/ngày: toplist.vn.
 - Tranh dấu mốc phát triển (slide 8): `images/dau-moc-phat-trien-truong-ngo-quyen.jpg`.
 - Tranh minh hoạ (Ngô Quyền, trận Bạch Đằng, ngôi trường, thầy cô, đố vui): tự vẽ bằng SVG.
-- Ảnh thật được vẽ lại kiểu màu nước bằng `tools/make-hand-drawn-photos.py` (cần `opencv-python-headless`, `numpy`).
+- Ảnh thật (trừ ảnh toàn cảnh trường ở slide 5) được vẽ lại kiểu anime truyện tranh bằng `tools/make-hand-drawn-photos.py` (cần `opencv-python-headless`, `numpy`).
 - Thiệp không đăng họ tên, ảnh rõ mặt học sinh. Ảnh thầy cô chỉ đăng khi nhà trường đồng ý.
