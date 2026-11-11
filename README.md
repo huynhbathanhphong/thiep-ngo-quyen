@@ -15,7 +15,7 @@ Gồm 11 slide, bấm nút ‹ › (hoặc phím ← →, hoặc vuốt) để c
 
 ## Chỗ em cần tự sửa
 
-Mở `index.html` và tìm `fill-me`. Đó là các ô tô vàng: tên gọi, lớp, sở thích, ước mơ.
+Thông tin cá nhân nằm ở slide 2 trong `index.html` (tìm `profile-row`).
 
 ## Chạy thử trên máy
 
