@@ -15,7 +15,7 @@ Gồm 11 slide, bấm nút ‹ › (hoặc phím ← →, hoặc vuốt) để c
 
 ## Chỗ em cần tự sửa
 
-Mở `index.html` và tìm `fill-me`. Đó là các ô tô vàng: tên gọi, lớp, sở thích, ước mơ, năm thành lập trường.
+Mở `index.html` và tìm `fill-me`. Đó là các ô tô vàng: tên gọi, lớp, sở thích, ước mơ.
 
 ## Chạy thử trên máy
 
@@ -28,6 +28,8 @@ Rồi mở `http://localhost:8000`.
 ## Nguồn
 
 - Thông tin và ảnh về trường: fanpage Trường Tiểu học Ngô Quyền – Phường Cẩm Lệ.
-- Mốc đạt chuẩn quốc gia (2000–2001) và học 2 buổi/ngày: toplist.vn. Cần nhà trường xác nhận.
-- Tranh minh hoạ (Ngô Quyền, trận Bạch Đằng, ngôi trường, đố vui): tự vẽ bằng SVG.
+- Học 2 buổi/ngày: toplist.vn.
+- Tranh dấu mốc phát triển (slide 8): `images/dau-moc-phat-trien-truong-ngo-quyen.jpg`.
+- Tranh minh hoạ (Ngô Quyền, trận Bạch Đằng, ngôi trường, thầy cô, đố vui): tự vẽ bằng SVG.
+- Ảnh thật được vẽ lại kiểu màu nước bằng `tools/make-hand-drawn-photos.py` (cần `opencv-python-headless`, `numpy`).
 - Thiệp không đăng họ tên, ảnh rõ mặt học sinh. Ảnh thầy cô chỉ đăng khi nhà trường đồng ý.
