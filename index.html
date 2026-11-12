@@ -11,8 +11,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/deck-styles.css?v=20261112h">
-<link rel="stylesheet" href="assets/slide-components.css?v=20261112h">
+<link rel="stylesheet" href="assets/deck-styles.css?v=book2">
+<link rel="stylesheet" href="assets/slide-components.css?v=book2">
+<link rel="stylesheet" href="assets/book-page-flip.css?v=book2">
 <!--
   HƯỚNG DẪN SỬA THIỆP
   - Chữ nằm trong <span class="fill-me">...</span> là chỗ em tự điền (tên gọi, lớp, sở thích...).
@@ -20,7 +21,7 @@
   - Không ghi họ tên đầy đủ, địa chỉ nhà, số điện thoại của bạn nào lên thiệp.
 -->
 </head>
-<body>
+<body class="book">
 
 <!-- Kho hình vẽ dùng lại nhiều lần -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -62,7 +63,7 @@
 <main class="deck">
 
   <!-- 1. BÌA -->
-  <section class="slide" data-fx="zoom" data-chapter="Mở đầu" aria-label="Bìa thiệp" style="--bg:#e8f4ff;--accent:var(--red)">
+  <section class="slide" data-chapter="Mở đầu" aria-label="Bìa thiệp" style="--bg:#e8f4ff;--accent:var(--red)">
     <div class="blob" style="width:340px;height:340px;background:#ffd6e0;top:8%;left:-80px"></div>
     <div class="blob" style="width:280px;height:280px;background:#c9f2e7;bottom:6%;right:-60px;animation-delay:-6s"></div>
     <div class="inner">
@@ -93,7 +94,7 @@
   </section>
 
   <!-- 2. VỀ EM -->
-  <section class="slide" data-fx="slide" data-chapter="Về em" aria-label="Giới thiệu bản thân" style="--bg:#f1ecff;--accent:var(--grape)" aria-hidden="true">
+  <section class="slide" data-chapter="Về em" aria-label="Giới thiệu bản thân" style="--bg:#f1ecff;--accent:var(--grape)" aria-hidden="true">
     <div class="blob" style="width:300px;height:300px;background:#ffe3a3;top:10%;right:5%"></div>
     <div class="inner">
       <div class="copy">
@@ -116,7 +117,7 @@
   </section>
 
   <!-- 3. ANH HÙNG NGÔ QUYỀN -->
-  <section class="slide hero-dark" data-fx="iris" data-chapter="Anh hùng Ngô Quyền" aria-label="Anh hùng Ngô Quyền" style="--bg:#1a1238;--accent:var(--sun);background:radial-gradient(circle at 70% 60%,#5b1d5e 0,#1a1238 60%)" aria-hidden="true">
+  <section class="slide hero-dark" data-chapter="Anh hùng Ngô Quyền" aria-label="Anh hùng Ngô Quyền" style="--bg:#1a1238;--accent:var(--sun);background:radial-gradient(circle at 70% 60%,#5b1d5e 0,#1a1238 60%)" aria-hidden="true">
     <div class="inner">
       <div class="copy">
         <span class="kicker reveal" style="--i:0">⚔️ Người anh hùng mang tên trường em</span>
@@ -169,7 +170,7 @@
   </section>
 
   <!-- 4. TRẬN BẠCH ĐẰNG -->
-  <section class="slide hero-dark" data-fx="slide" data-chapter="Anh hùng Ngô Quyền" aria-label="Trận Bạch Đằng năm 938" style="--bg:#0f2742;--accent:var(--sun);background:linear-gradient(160deg,#0f2742,#123c5e)" aria-hidden="true">
+  <section class="slide hero-dark" data-chapter="Anh hùng Ngô Quyền" aria-label="Trận Bạch Đằng năm 938" style="--bg:#0f2742;--accent:var(--sun);background:linear-gradient(160deg,#0f2742,#123c5e)" aria-hidden="true">
     <div class="inner">
       <div class="copy">
         <span class="kicker reveal" style="--i:0">🌊 Trận Bạch Đằng năm 938</span>
@@ -225,7 +226,7 @@
   </section>
 
   <!-- 5. TRƯỜNG EM -->
-  <section class="slide" data-fx="rise" data-chapter="Trường em" aria-label="Giới thiệu Trường Tiểu học Ngô Quyền" style="--bg:#e3f7f0;--accent:var(--mint)" aria-hidden="true">
+  <section class="slide" data-chapter="Trường em" aria-label="Giới thiệu Trường Tiểu học Ngô Quyền" style="--bg:#e3f7f0;--accent:var(--mint)" aria-hidden="true">
     <div class="blob" style="width:320px;height:320px;background:#fff1b8;bottom:4%;left:-60px"></div>
     <div class="inner">
       <div class="copy">
@@ -251,7 +252,7 @@
   </section>
 
   <!-- 6. THẦY CÔ -->
-  <section class="slide" data-fx="flip" data-chapter="Trường em" aria-label="Thầy cô trường Ngô Quyền" style="--bg:#fff0e6;--accent:var(--peach)" aria-hidden="true">
+  <section class="slide" data-chapter="Trường em" aria-label="Thầy cô trường Ngô Quyền" style="--bg:#fff0e6;--accent:var(--peach)" aria-hidden="true">
     <div class="blob" style="width:300px;height:300px;background:#ffd6e0;top:6%;right:-40px"></div>
     <div class="inner">
       <div class="copy">
@@ -339,7 +340,7 @@
   </section>
 
   <!-- 7. HOẠT ĐỘNG -->
-  <section class="slide" data-fx="zoom" data-chapter="Trường em" aria-label="Hoạt động của trường" style="--bg:#fff7d6;--accent:#c27c00" aria-hidden="true">
+  <section class="slide" data-chapter="Trường em" aria-label="Hoạt động của trường" style="--bg:#fff7d6;--accent:#c27c00" aria-hidden="true">
     <div class="inner single">
       <div class="copy">
         <span class="kicker reveal" style="--i:0">🎉 Hoạt động sôi nổi</span>
@@ -382,7 +383,7 @@
   </section>
 
   <!-- 8. DẤU MỐC -->
-  <section class="slide" data-fx="slide" data-chapter="Trường em" aria-label="Dấu mốc đáng nhớ" style="--bg:#e6f3ff;--accent:var(--sky)" aria-hidden="true">
+  <section class="slide" data-chapter="Trường em" aria-label="Dấu mốc đáng nhớ" style="--bg:#e6f3ff;--accent:var(--sky)" aria-hidden="true">
     <div class="inner single">
       <div class="copy">
         <span class="kicker reveal" style="--i:0">🏅 Dấu mốc đáng nhớ trên mảnh đất trường em</span>
@@ -444,7 +445,7 @@
   </section>
 
   <!-- 9. ĐỐ VUI 1 -->
-  <section class="slide" data-fx="flip" data-chapter="Đố vui" aria-label="Đố vui phần 1" style="--bg:#f1ecff;--accent:var(--grape)" aria-hidden="true">
+  <section class="slide" data-chapter="Đố vui" aria-label="Đố vui phần 1" style="--bg:#f1ecff;--accent:var(--grape)" aria-hidden="true">
     <div class="inner single">
       <div class="copy">
         <span class="kicker reveal" style="--i:0">❓ Đố vui · Phần 1</span>
@@ -473,7 +474,7 @@
   </section>
 
   <!-- 10. ĐỐ VUI 2 -->
-  <section class="slide" data-fx="flip" data-chapter="Đố vui" aria-label="Đố vui phần 2" style="--bg:#e3f7f0;--accent:var(--mint)" aria-hidden="true">
+  <section class="slide" data-chapter="Đố vui" aria-label="Đố vui phần 2" style="--bg:#e3f7f0;--accent:var(--mint)" aria-hidden="true">
     <div class="inner single">
       <div class="copy">
         <span class="kicker reveal" style="--i:0">❓ Đố vui · Phần 2</span>
@@ -502,7 +503,7 @@
   </section>
 
   <!-- 11. LỜI KẾT -->
-  <section class="slide" id="loi-ket" data-fx="iris" data-chapter="Lời kết" aria-label="Lời cảm ơn" style="--bg:#ffe9ec;--accent:var(--red)" aria-hidden="true">
+  <section class="slide" id="loi-ket" data-chapter="Lời kết" aria-label="Lời cảm ơn" style="--bg:#ffe9ec;--accent:var(--red)" aria-hidden="true">
     <div class="blob" style="width:360px;height:360px;background:#fff1b8;top:-40px;left:-60px"></div>
     <div class="blob" style="width:300px;height:300px;background:#d9ccff;bottom:-30px;right:-40px;animation-delay:-8s"></div>
     <div class="inner single">
@@ -534,10 +535,10 @@
   <span class="counter" id="counter">1 / 11</span>
   <button class="nav-btn next" id="next" type="button" aria-label="Slide tiếp theo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
 </nav>
-<p class="hint">Dùng phím ← → hoặc vuốt để chuyển trang</p>
+<p class="hint">Bấm góc trang, phím ← → hoặc vuốt để lật sách</p>
 <canvas id="confetti" aria-hidden="true"></canvas>
 
-<script src="assets/deck-navigation.js?v=20261112h"></script>
-<script src="assets/quiz-and-effects.js?v=20261112h"></script>
+<script src="assets/deck-navigation.js?v=book2"></script>
+<script src="assets/quiz-and-effects.js?v=book2"></script>
 </body>
 </html>

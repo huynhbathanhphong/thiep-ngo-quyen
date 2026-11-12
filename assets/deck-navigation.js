@@ -1,4 +1,4 @@
-// Điều hướng trình chiếu: nút qua lại, chấm tiến độ, chương mục, phím mũi tên, vuốt, và #s3 trên địa chỉ.
+// Điều hướng kiểu cuốn sách (lật trang): nút qua lại, chấm tiến độ, chương mục, phím mũi tên, vuốt, và #s3 trên địa chỉ.
 (function () {
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var prev = document.getElementById('prev');
@@ -35,19 +35,59 @@
     return b;
   });
 
+  // Lật trang sách: tiến thì trang cũ lật qua gáy, lùi thì trang trước lật về đè lên.
+  var flipping = false;
+  var FLIP_MS = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 920;
+  function flipPage(from, to, dir) {
+    flipping = true;
+    if (dir > 0) {
+      from.classList.add('flip-out');
+    } else {
+      from.classList.add('under');
+      to.classList.add('flip-in');
+    }
+    setTimeout(function () {
+      from.classList.remove('flip-out', 'under');
+      to.classList.remove('flip-in');
+      flipping = false;
+    }, FLIP_MS);
+  }
+
+  var deck = document.querySelector('.deck');
+  function corner(cls, label, text, step) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'page-corner ' + cls;
+    b.setAttribute('aria-label', label);
+    b.innerHTML = '<span>' + text + '</span>';
+    b.addEventListener('click', function () { go(current + step); });
+    deck.appendChild(b);
+    return b;
+  }
+  var cornerNext = corner('next', 'Lật sang trang sau', '›', 1);
+  var cornerPrev = corner('prev', 'Lật về trang trước', '‹', -1);
+  var pageNo = document.createElement('span');
+  pageNo.className = 'page-no';
+  deck.appendChild(pageNo);
+
   function go(i, fromHash) {
     if (i < 0 || i >= slides.length || i === current) return;
+    if (flipping) return;
     var dir = i > current ? 1 : -1;
-    slides.forEach(function (s) { s.style.setProperty('--dir', dir); });
-    if (current >= 0) {
-      slides[current].classList.remove('is-active');
-      slides[current].setAttribute('aria-hidden', 'true');
-    }
-    current = i;
+    var from = current >= 0 ? slides[current] : null;
     var s = slides[i];
+    if (from) {
+      from.classList.remove('is-active');
+      from.setAttribute('aria-hidden', 'true');
+    }
+    s.scrollTop = 0;
     s.classList.add('is-active');
     s.removeAttribute('aria-hidden');
-    s.scrollTop = 0;
+    if (from) flipPage(from, s, dir);
+    current = i;
+    pageNo.textContent = 'Trang ' + (i + 1);
+    cornerPrev.disabled = i === 0;
+    cornerNext.disabled = i === slides.length - 1;
     document.body.style.background = getComputedStyle(s).getPropertyValue('--bg') || '';
 
     counter.textContent = (i + 1) + ' / ' + slides.length;

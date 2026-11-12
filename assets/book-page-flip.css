@@ -1,0 +1,98 @@
+/* Chế độ "cuốn sách": cả web là một cuốn sách đặt trên bàn, mỗi slide là một trang.
+   Lật trang: trang quay quanh gáy sách bên trái (rotateY), mặt sau bị ẩn để lộ trang kế tiếp. */
+body.book {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.08), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(255,183,3,.10), transparent 45%),
+    #24305a !important;
+}
+.book .progress { display: none; }
+.book .brand, .book .chapters { box-shadow: 0 6px 18px -10px rgba(0,0,0,.5); }
+.book .hint { color: rgba(255,255,255,.65); }
+
+/* Khung sách */
+.book .deck {
+  top: calc(env(safe-area-inset-top, 0px) + 70px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 92px);
+  left: max(26px, calc(env(safe-area-inset-left, 0px) + 22px));
+  right: max(22px, calc(env(safe-area-inset-right, 0px) + 18px));
+  max-width: 1240px; margin: 0 auto;
+  perspective: 2400px; perspective-origin: 0 50%;
+  border-radius: 6px 18px 18px 6px;
+  background: #fffaf0;
+  /* mép giấy xếp chồng bên phải + bóng đổ xuống bàn */
+  box-shadow:
+    2px 2px 0 #f6efe0, 4px 4px 0 #e9e0cc, 6px 6px 0 #f6efe0, 8px 8px 0 #ddd2bb,
+    0 40px 70px -24px rgba(0,0,0,.65);
+}
+/* gáy sách bìa đỏ */
+.book .deck::before {
+  content: ""; position: absolute; z-index: 6; top: -6px; bottom: -10px; left: -16px; width: 20px;
+  border-radius: 8px 0 0 8px;
+  background:
+    linear-gradient(transparent 12%, #ffd166 12% 13%, transparent 13% 87%, #ffd166 87% 88%, transparent 88%),
+    linear-gradient(90deg, #8f1d24, #c9343d 60%, #a5232b);
+  box-shadow: -4px 6px 14px rgba(0,0,0,.35);
+}
+/* bóng gáy đổ lên trang */
+.book .deck::after {
+  content: ""; position: absolute; z-index: 5; top: 0; bottom: 0; left: 0; width: 56px; pointer-events: none;
+  border-radius: 6px 0 0 6px;
+  background: linear-gradient(90deg, rgba(0,0,0,.22), rgba(0,0,0,.06) 45%, transparent);
+}
+
+/* Trang sách */
+.book .slide {
+  opacity: 1; transform: none; clip-path: none;
+  transition: none; transform-origin: left center;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: 6px 18px 18px 6px;
+  padding: 34px 30px 34px 52px;
+  will-change: transform;
+}
+.book .slide.is-active { z-index: 2; }
+.book .slide.under { visibility: visible; z-index: 1; }
+.book .slide.flip-out, .book .slide.flip-in { visibility: visible; z-index: 4; pointer-events: none; overflow: hidden; }
+.book .slide.flip-out { animation: page-out .9s cubic-bezier(.45,.05,.35,1) forwards; }
+.book .slide.flip-in { animation: page-in .9s cubic-bezier(.45,.05,.35,1) forwards; }
+@keyframes page-out {
+  0%   { transform: rotateY(0); filter: brightness(1); box-shadow: 0 0 0 rgba(0,0,0,0); }
+  45%  { filter: brightness(.86); box-shadow: -30px 0 60px rgba(0,0,0,.35); }
+  100% { transform: rotateY(-180deg); filter: brightness(.7); box-shadow: 0 0 0 rgba(0,0,0,0); }
+}
+@keyframes page-in {
+  0%   { transform: rotateY(-180deg); filter: brightness(.7); }
+  55%  { filter: brightness(.86); box-shadow: -30px 0 60px rgba(0,0,0,.35); }
+  100% { transform: rotateY(0); filter: brightness(1); }
+}
+/* nội dung trang mới hiện ra sau khi trang cũ lật qua */
+.book .reveal { transition-delay: calc(var(--i, 0) * 90ms + 520ms); }
+
+/* Góc trang gập: bấm để lật */
+.page-corner {
+  position: absolute; z-index: 7; bottom: 0; width: 64px; height: 64px; border: 0; padding: 0; cursor: pointer;
+  background: transparent; transition: width .25s ease, height .25s ease;
+}
+.page-corner.next { right: 0; border-radius: 0 0 18px 0;
+  background: linear-gradient(315deg, transparent 50%, #e9dfca 50%, #fffaf0 62%, rgba(0,0,0,.12) 63%, transparent 72%); }
+.page-corner.prev { left: 0; border-radius: 0 0 0 6px;
+  background: linear-gradient(45deg, transparent 50%, #e9dfca 50%, #fffaf0 62%, rgba(0,0,0,.12) 63%, transparent 72%); }
+.page-corner:hover, .page-corner:focus-visible { width: 86px; height: 86px; }
+.page-corner:disabled { display: none; }
+.page-corner span { position: absolute; bottom: 8px; font-family: var(--display); font-weight: 800; font-size: .8rem; color: var(--ink-soft); }
+.page-corner.next span { right: 10px; }
+.page-corner.prev span { left: 10px; }
+
+/* số trang ở góc trên */
+.page-no { position: absolute; z-index: 7; top: 10px; right: 18px; font-family: var(--display); font-weight: 700; font-size: .85rem; color: rgba(20,33,61,.45); pointer-events: none; }
+
+@media (max-width: 860px) {
+  .book .slide { padding: 24px 16px 70px 30px; }
+  .book .deck { left: 22px; right: 12px; }
+  .book .deck::after { width: 30px; }
+  .page-corner { width: 40px; height: 40px; }
+  .page-corner:hover, .page-corner:focus-visible { width: 52px; height: 52px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book .slide.flip-out, .book .slide.flip-in { animation-duration: .01ms; }
+}
