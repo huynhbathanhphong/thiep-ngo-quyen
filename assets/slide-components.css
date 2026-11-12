@@ -193,9 +193,6 @@
 .act figcaption small { font-size: .78rem; color: var(--ink-soft); }
 .act .sticker { position: absolute; z-index: 2; top: 10px; left: 10px; background: var(--sun); color: var(--navy); font-weight: 800; font-size: .78rem; padding: 4px 10px; border-radius: 999px; }
 
-/* Slide 8: infographic dấu mốc */
-.milestone-art { border-radius: var(--radius); overflow: hidden; box-shadow: 0 24px 50px -24px rgba(20,33,61,.55); background: #fff; }
-.milestone-art img { width: 100%; height: auto; }
 
 @media (max-width: 860px) {
   .comics { grid-template-columns: minmax(0,1fr); }
@@ -204,7 +201,6 @@
 @media (max-width: 480px) {
   .acts { grid-template-columns: minmax(0,1fr); }
 }
-.milestone-art { justify-self: center; max-width: min(100%, calc((100dvh - 250px) * 1.777)); }
 .campus .school-photo { aspect-ratio: 1 / 1; max-height: calc(100dvh - 220px); justify-self: center; width: 100%; max-width: 560px; }
 
 /* ---------- Slide lời kết: làm nổi bật lời hứa ---------- */
@@ -258,3 +254,39 @@
 @media (max-width: 480px) { .promise-seal { width: 62px; height: 62px; right: -6px; font-size: .66rem; } }
 .profile-photo { width: 100%; max-width: 320px; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 20%; border-radius: 28px; }
 .avatar-card { padding: 16px 16px 20px; }
+
+/* ---------- Slide 8: dòng thời gian dấu mốc ---------- */
+.mile { display: grid; gap: 18px; }
+.mile-road { position: relative; display: flex; justify-content: space-between; gap: 8px; padding: 8px 4px; overflow-x: auto; scrollbar-width: none; }
+.mile-track { position: absolute; left: 36px; right: 36px; top: 50%; height: 6px; margin-top: -3px; border-radius: 6px; background: rgba(20,33,61,.12); }
+.mile-fill { height: 100%; width: 0; border-radius: 6px; background: linear-gradient(90deg, #a07a52, #7b5cd6, #2a9d8f, #e09a00, #219ebc, #e63946, #ff6b3d); transition: width .6s var(--ease); }
+.mile-year { position: relative; z-index: 1; flex: none; border: 3px solid var(--c); background: #fff; color: var(--c); font-family: var(--display); font-weight: 800; font-size: 1.05rem; padding: 6px 14px; border-radius: 999px; cursor: pointer; transition: transform .25s var(--ease), background .25s, color .25s; }
+.mile-year:hover { transform: translateY(-3px); }
+.mile-year.passed { background: color-mix(in srgb, var(--c) 18%, #fff); }
+.mile-year[aria-selected="true"] { background: var(--c); color: #fff; transform: scale(1.12); box-shadow: 0 8px 18px -8px var(--c); }
+.mile-stage { display: grid; gap: 14px; }
+.mile-card { display: grid; grid-template-columns: 220px minmax(0,1fr); gap: 24px; align-items: center; background: #fff; border-radius: 30px; padding: 22px; border-top: 8px solid var(--c); box-shadow: 0 24px 50px -30px rgba(20,33,61,.55); }
+.mile-card.enter { animation: mileIn .55s var(--ease); }
+@keyframes mileIn { from { opacity: 0; transform: translateY(18px) scale(.97); } }
+.mile-art { width: 100%; height: auto; }
+.mile-card.enter .mile-art { animation: pop .6s cubic-bezier(.3,1.6,.5,1); }
+@keyframes pop { from { transform: scale(.6) rotate(-6deg); } }
+.mile-body { display: grid; gap: 10px; min-width: 0; }
+.mile-big { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; color: var(--c); }
+.mile-body h3 { font-size: clamp(1.25rem, 2.2vw, 1.6rem); color: var(--navy); }
+.mile-body p { color: var(--ink-soft); }
+.mile-note { background: var(--tint); border-left: 5px solid var(--c); border-radius: 12px; padding: 10px 14px; color: var(--ink) !important; }
+.mile-stats { display: flex; flex-wrap: wrap; gap: 10px; }
+.mile-stats span { background: var(--tint); border-radius: 16px; padding: 8px 14px; display: grid; font-size: .85rem; color: var(--ink-soft); line-height: 1.3; }
+.mile-stats b { font-family: var(--display); font-size: 1.35rem; color: var(--c); font-variant-numeric: tabular-nums; }
+.mile-nav { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.mile-nav .btn { justify-self: auto; padding: 10px 20px; font-size: .95rem; }
+.mile-nav .btn:disabled { opacity: .4; cursor: default; transform: none; }
+.mile-count { font-family: var(--display); font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; }
+.mile-src { text-align: center; }
+@media (max-width: 860px) {
+  .mile-card { grid-template-columns: minmax(0,1fr); }
+  .mile-art { max-width: 200px; justify-self: center; }
+  .mile-road { justify-content: flex-start; }
+}
+.mile-card[hidden] { display: none; }
