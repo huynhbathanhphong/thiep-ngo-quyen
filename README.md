@@ -6,7 +6,7 @@ Gồm 11 slide, bấm nút ‹ › (hoặc phím ← →, hoặc vuốt) để c
 
 | # | Slide | Nội dung |
 |---|---|---|
-| 1 | Bìa | Tên cuộc thi, lời mở đầu |
+| 1 | Bìa | Tên thiệp, lời mở đầu |
 | 2 | Về em | Giới thiệu bản thân (em tự điền) |
 | 3–4 | Anh hùng Ngô Quyền | Tiểu sử, trận Bạch Đằng 938 có mô phỏng thủy triều |
 | 5–8 | Trường em | Hai cơ sở, thầy cô, hoạt động, dấu mốc |
